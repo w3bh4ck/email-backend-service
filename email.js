@@ -1,21 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const exphbs = require('express-handlebars');
 const fileUpload = require('express-fileupload');
-const path = require('path');
 
 const app = express();
 // const path = require('path'); //module for generating file path in node
 let port = process.env.PORT || 5555;
 
-
-//set up the view engine for the submit success
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
-//static folder
-app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.use(fileUpload());
 // Body Parser Middleware
